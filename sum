@@ -1,0 +1,10 @@
+#求和方法一
+import math
+m=int(input())
+print(sum(list(range(1,m+1))))
+#求和方法二：使用函数
+import math
+n=int(input())
+def sum_n(n):
+  return sum(list(range(1,n+1)))
+print(sum_n(n))
