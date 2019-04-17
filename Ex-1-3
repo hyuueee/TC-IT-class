@@ -1,0 +1,11 @@
+op=input()
+a=int(input())
+b=int(input())
+def add_or_sub(a,b):
+    if op=='+':
+        print (int(a+b))
+        return
+    if op=='-':
+        print (int(a-b))
+        return
+add_or_sub(a,b)
