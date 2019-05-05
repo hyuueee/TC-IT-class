@@ -11,3 +11,27 @@ def len_last_word(s):
 print(len_last_word(s))
 
 method 2:
+def len_last_word(s):
+    if len(s) == 0:
+        return 0
+
+    met = False #假设一开始没有遇到
+    length = 0 #走过的长度
+    #从最后一个开始遍历
+    for i in range(len(s)):
+        k = len(s)- 1 - i #len(s)-1最后一个元素，每次减去i
+        current = s[k]
+        if current == " ":
+            if met == False:  #之前没遇到过字母
+                pass
+            else:
+                return length
+        else:#不是空格就是字符
+            met = True#是赋值不是判断
+            length += 1
+
+    return length
+
+
+s = input()
+print(len_last_word(s))
