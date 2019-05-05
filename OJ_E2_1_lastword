@@ -1,0 +1,13 @@
+Method 1: time-consuming
+s = input('')
+ 
+def len_last_word(s):
+    n = s.split() #split函数根据s中的空白字符串将s分割成许多连续的串，如果s只有空格，对应'不存在这样的单词的情况'，返回空列表[ ]
+    if n == '':
+        return 0
+    else:
+        return len(n[-1]) #返回最后一个词的长度
+
+print(len_last_word(s))
+
+method 2:
