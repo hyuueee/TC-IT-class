@@ -1,0 +1,17 @@
+n = int(input())
+arr = []
+for i in range(n):
+    arr.append(int(input())) #将输入放到list中
+
+
+def cummulative_sum(arr):#函数内的arr与函数外互不影响，虽然名字相同
+    r = []
+    for i in range(len(arr)):
+        if len(r) == 0:
+            r.append(arr[i])
+        else:
+            r.append(r[-1]+arr[i])
+    return r
+
+r = cummulative_sum(arr)
+print(r)
