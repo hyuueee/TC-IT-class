@@ -1,0 +1,22 @@
+def k_th_smallest(arr, k):
+    randomly_selected_point =arr[0]
+    #将比随便取的数大和小的分别放至右边和左边，用arr=[int(x) for x in arr]
+    arr_left = [x for x in arr if x < randomly_selected_point]
+    arr_right = [x for x in arr if x > randomly_selected_point]
+
+    #判断1：如果左边的个数是k-1，那么第k个就是要找的那个数
+    if len(arr_left) == k - 1:
+        return randomly_selected_point
+    #判断2：如果左边的个数比k小，那么k一定在数列的右边
+    elif len(arr_left) > k - 1:
+        return k_th_smallest(arr_left,k)
+    else:
+        return k_th_smallest(arr_right, k - len(arr_left) - 1)
+
+#输入
+arr = input().split(" ")
+k = int(input())
+
+
+#输出
+print(k_th_smallest(arr, k))
