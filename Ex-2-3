@@ -1,0 +1,33 @@
+string = input('')
+pattern = input('')
+
+def match(string,pattern):
+    #首先排除string是空串的情况，一定不匹配
+    if len(string) == 0:
+        return False
+    #pivot是要匹配的箭头，赋值为0是要匹配第0个元素
+    next_pivot = 0
+
+    for current_pivot, value in enumerate(pattern):   # enumerate功能是每次返回到下一个下标和对应的值
+        if value == '+':
+            continue
+        elif current_pivot+1 <= len(pattern)-1 and pattern[current_pivot+1] == '+':
+            matched = False
+            while True:
+                if next_pivot >= len(string):
+                    break
+                elif string[next_pivot] == value:
+                    matched = True
+                    next_pivot += 1
+                else:
+                    break
+            if not matched:
+                return False
+        else:
+            if next_pivot >= len(string) or string[next_pivot] != value:
+                return False
+            else:
+                next_pivot += 1
+    return next_pivot == len(string)
+
+print(match(string,pattern))
