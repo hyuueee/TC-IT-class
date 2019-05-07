@@ -1,0 +1,11 @@
+n = int(input())
+
+def fib(n):
+    a,b= 1,1 #a最终是fib(n)
+    #b最终是fib(n+1)
+
+    for i in range(n):
+        b,a=a+b,b
+    return a
+
+print(fib(n))
