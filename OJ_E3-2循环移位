@@ -1,0 +1,24 @@
+def arr_reverse(arr,begin,end):
+    if len(arr) <= 1:
+        return
+    i = begin
+    j = end
+    while True:
+        arr[i],arr[j]=arr[j],arr[i]
+        if j - i <= 2:
+            return
+        i +=1
+        j -=1
+
+def rotate(arr,n):
+    arr_reverse(arr,0,n-1)
+    arr_reverse(arr,n,len(arr)-1)
+    arr_reverse(arr,0,len(arr)-1)
+    return arr
+
+n = int(input())
+m = int(input())
+arr = []
+for i in range(m):
+  arr.append(int(input()))
+print(rotate(arr, n))
