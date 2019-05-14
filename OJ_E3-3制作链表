@@ -1,0 +1,27 @@
+class LinkedList:
+
+  def __init__(self, value):
+    self.value = value
+    self.next = None
+
+  def __str__(self):
+    if self.next:
+      return str(self.value) + " -> " + str(self.next)
+    else:
+      return str(self.value)
+# 请勿改动 End
+
+def make_linked_list(arr):
+#设置初始值:头部和指针
+    head = LinkedList('head')
+    pointer = head#给指针赋值，一开始是一样的
+    for i in arr:#遍历数组中的值
+        pointer.next=LinkedList(i)
+        pointer = pointer.next#不断的给指针赋予新的值
+    return head.next#当数组遍历完之后返回到初始值状态（下一个值为空）
+
+n = int(input())
+arr = []
+for i in range(n):
+  arr.append(int(input()))
+print(make_linked_list(arr))
