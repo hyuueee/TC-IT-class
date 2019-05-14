@@ -1,0 +1,21 @@
+class LinkedList:
+
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+    def __str__(self):
+        if self.next:
+            return str(self.value) + " -> " + str(self.next)
+        else:
+            return str(self.value)
+
+
+def concat_linked_list(a, b):
+    current = a
+    while current.next != None:
+        current = current.next#current变成下一个节点，如果是None跳出循环
+
+    current.next=b #b 可以代表一个链表，还可以代表第一个节点
+
+    return a
